@@ -1,0 +1,20 @@
+GET https://localhost:5001/weatherforecast
+
+### Expected Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+    {
+        "date": "2023-10-01T00:00:00Z",
+        "temperatureC": 25,
+        "temperatureF": 77,
+        "summary": "Warm"
+    },
+    {
+        "date": "2023-10-02T00:00:00Z",
+        "temperatureC": 20,
+        "temperatureF": 68,
+        "summary": "Mild"
+    }
+]

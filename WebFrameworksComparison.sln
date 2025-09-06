@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Infrastructure", "shared\WebFrameworksComparison.Infrastructure\WebFrameworksComparison.Infrastructure.csproj", "{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.MinimalApi", "src\WebFrameworksComparison.MinimalApi\WebFrameworksComparison.MinimalApi.csproj", "{632667FF-2C48-1F91-8BED-C45F56F6F900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632667FF-2C48-1F91-8BED-C45F56F6F900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632667FF-2C48-1F91-8BED-C45F56F6F900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632667FF-2C48-1F91-8BED-C45F56F6F900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632667FF-2C48-1F91-8BED-C45F56F6F900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{458AAA91-892B-491F-8BD9-72944C095CB4} = {166AC862-5FE6-4A0F-8E29-F7886DE27B1B}
 		{7A08AF92-EF51-4C3C-A675-E7E8C66FB1E8} = {237B43BA-4B66-4755-A726-642234DEFFFA}
 		{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57} = {237B43BA-4B66-4755-A726-642234DEFFFA}
+		{632667FF-2C48-1F91-8BED-C45F56F6F900} = {166AC862-5FE6-4A0F-8E29-F7886DE27B1B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29E38688-2DCD-4D2C-8743-887FA04D980D}
