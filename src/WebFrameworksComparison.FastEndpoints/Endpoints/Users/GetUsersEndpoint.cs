@@ -1,13 +1,8 @@
 namespace WebFrameworksComparison.FastEndpoints.Endpoints.Users;
 
-public class GetUsersEndpoint : Endpoint<GetUsersRequest, GetUsersResponse>
+public class GetUsersEndpoint (IUserService userService): Endpoint<GetUsersRequest, GetUsersResponse>
 {
-    private readonly Core.Application.Interfaces.IUserService _userService;
-
-    public GetUsersEndpoint(Core.Application.Interfaces.IUserService userService)
-    {
-        _userService = userService;
-    }
+    private readonly IUserService _userService = userService;
 
     public override void Configure()
     {
@@ -41,17 +36,4 @@ public class GetUsersEndpoint : Endpoint<GetUsersRequest, GetUsersResponse>
     }
 }
 
-public class GetUsersRequest
-{
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
-}
 
-public class GetUsersResponse
-{
-    public IEnumerable<UserListDto> Users { get; set; } = new List<UserListDto>();
-    public int TotalCount { get; set; }
-    public int PageNumber { get; set; }
-    public int PageSize { get; set; }
-    public int TotalPages { get; set; }
-}

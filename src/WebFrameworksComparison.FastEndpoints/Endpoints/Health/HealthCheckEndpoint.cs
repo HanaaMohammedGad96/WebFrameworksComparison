@@ -1,13 +1,8 @@
 namespace WebFrameworksComparison.FastEndpoints.Endpoints.Health;
 
-public class HealthCheckEndpoint : EndpointWithoutRequest<HealthCheckResponse>
+public class HealthCheckEndpoint(IUnitOfWork unitOfWork) : EndpointWithoutRequest<HealthCheckResponse>
 {
-    private readonly Core.Domain.Interfaces.IUnitOfWork _unitOfWork;
-
-    public HealthCheckEndpoint(Core.Domain.Interfaces.IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;  
 
     public override void Configure()
     {

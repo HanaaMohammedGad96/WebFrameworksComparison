@@ -1,13 +1,8 @@
 namespace WebFrameworksComparison.FastEndpoints.Endpoints.Users;
 
-public class GetUserByIdEndpoint : Endpoint<GetUserByIdRequest, UserDto>
+public class GetUserByIdEndpoint(IUserService userService) : Endpoint<GetUserByIdRequest, UserDto>
 {
-    private readonly Core.Application.Interfaces.IUserService _userService;
-
-    public GetUserByIdEndpoint(Core.Application.Interfaces.IUserService userService)
-    {
-        _userService = userService;
-    }
+    private readonly IUserService _userService= userService;
 
     public override void Configure()
     {

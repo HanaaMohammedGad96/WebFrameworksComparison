@@ -1,13 +1,8 @@
 namespace WebFrameworksComparison.FastEndpoints.Endpoints.Users;
 
-public class CreateUserEndpoint : Endpoint<CreateUserDto, UserDto>
+public class CreateUserEndpoint(IUserService userService) : Endpoint<CreateUserDto, UserDto>
 {
-    private readonly Core.Application.Interfaces.IUserService _userService;
-
-    public CreateUserEndpoint(Core.Application.Interfaces.IUserService userService)
-    {
-        _userService = userService;
-    }
+    private readonly IUserService _userService = userService;
 
     public override void Configure()
     {

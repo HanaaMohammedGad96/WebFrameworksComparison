@@ -1,13 +1,8 @@
 namespace WebFrameworksComparison.FastEndpoints.Endpoints.Users;
 
-public class UpdateUserEndpoint : Endpoint<UpdateUserRequest, UserDto>
+public class UpdateUserEndpoint (IUserService userService): Endpoint<UpdateUserRequest, UserDto>
 {
-    private readonly Core.Application.Interfaces.IUserService _userService;
-
-    public UpdateUserEndpoint(Core.Application.Interfaces.IUserService userService)
-    {
-        _userService = userService;
-    }
+    private readonly IUserService _userService= userService;
 
     public override void Configure()
     {
@@ -52,13 +47,4 @@ public class UpdateUserEndpoint : Endpoint<UpdateUserRequest, UserDto>
     }
 }
 
-public class UpdateUserRequest
-{
-    public int Id { get; set; }
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public string? PhoneNumber { get; set; }
-    public DateTime? DateOfBirth { get; set; }
-    public Core.Domain.Enums.UserRole Role { get; set; }
-    public string? Address { get; set; }
-}
+
