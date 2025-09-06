@@ -1,3 +1,6 @@
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using System.Security.Cryptography;
 namespace WebFrameworksComparison.Core.Application.Services;
@@ -21,10 +24,31 @@ public class AuthService(IUnitOfWork unitOfWork, IMapper mapper, IAuditService a
         {
             throw new UnauthorizedException("Account is not active");
         }
+        // Generate JWT token
+        var claims = new List<Claim>
+        {
+            new(Shared.Constants.ClaimTypes.UserId, user.Id.ToString()),
+            new(Shared.Constants.ClaimTypes.Email, user.Email),
+            new(Shared.Constants.ClaimTypes.Role, user.Role.ToString()),
+            new(Shared.Constants.ClaimTypes.FirstName, user.FirstName),
+            new(Shared.Constants.ClaimTypes.LastName, user.LastName),
+            new(System.Security.Claims.ClaimTypes.Name, user.FullName)
+        };
+        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Shared.Constants.JwtConstants.SecretKey));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var token = new JwtSecurityToken(
+            issuer: Shared.Constants.JwtConstants.Issuer,
+            audience: Shared.Constants.JwtConstants.Audience,
+            claims: claims,
+            expires: DateTime.UtcNow.AddMinutes(Shared.Constants.JwtConstants.ExpirationMinutes),
+            signingCredentials: creds
+        );
+        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
         await _auditService.LogAsync("User", user.Id.ToString(), AuditAction.Login, user.Id.ToString(), null, null, "Successful login", null, null);
-        // Token generation handled by ASP.NET Core pipeline
         return new LoginResponseDto
         {
+            Token = tokenString,
+            ExpiresAt = token.ValidTo,
             User = _mapper.Map<UserDto>(user)
         };
     }
@@ -72,9 +96,9 @@ public class AuthService(IUnitOfWork unitOfWork, IMapper mapper, IAuditService a
 
     public Task<string?> GetUserIdFromTokenAsync(string token)
     {
-        var user = _httpContextAccessor.HttpContext?.User;
-        var userId = user?.FindFirst(ClaimTypes.UserId)?.Value;
-        return Task.FromResult(userId);
+    var user = _httpContextAccessor.HttpContext?.User;
+    var userId = user?.FindFirst(WebFrameworksComparison.Core.Shared.Constants.ClaimTypes.UserId)?.Value;
+    return Task.FromResult(userId);
     }
 
     private string HashPassword(string password)

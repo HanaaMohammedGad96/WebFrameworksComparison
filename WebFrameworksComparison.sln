@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{CA23C95C-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.FastEndpoints", "src\WebFrameworksComparison.FastEndpoints\WebFrameworksComparison.FastEndpoints.csproj", "{458AAA91-892B-491F-8BD9-72944C095CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Core", "shared\src\WebFrameworksComparison.Core\WebFrameworksComparison.Core.csproj", "{7A08AF92-EF51-4C3C-A675-E7E8C66FB1E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Core", "shared\WebFrameworksComparison.Core\WebFrameworksComparison.Core.csproj", "{7A08AF92-EF51-4C3C-A675-E7E8C66FB1E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Infrastructure", "shared\src\WebFrameworksComparison.Infrastructure\WebFrameworksComparison.Infrastructure.csproj", "{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrameworksComparison.Infrastructure", "shared\WebFrameworksComparison.Infrastructure\WebFrameworksComparison.Infrastructure.csproj", "{CEB69A33-B728-4CD2-AEB0-C5B66E9E9D57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

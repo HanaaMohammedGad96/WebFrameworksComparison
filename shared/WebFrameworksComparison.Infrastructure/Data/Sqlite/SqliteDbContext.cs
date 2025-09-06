@@ -77,12 +77,29 @@ public class SqliteDbContext : DbContext
 
     private void SeedData(ModelBuilder modelBuilder)
     {
+
+        // Password: Admin@123
+        // Hashed using PBKDF2 to match AuthService
+        var salt = new byte[128 / 8];
+        using (var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(salt);
+        }
+        string hashed = Convert.ToBase64String(Microsoft.AspNetCore.Cryptography.KeyDerivation.KeyDerivation.Pbkdf2(
+            password: "Admin@123",
+            salt: salt,
+            prf: Microsoft.AspNetCore.Cryptography.KeyDerivation.KeyDerivationPrf.HMACSHA256,
+            iterationCount: 10000,
+            numBytesRequested: 256 / 8));
+        var hashedPassword = Convert.ToBase64String(salt) + ":" + hashed;
+
         var adminUser = new User
         {
             Id = 1,
             FirstName = "Admin",
             LastName = "User",
             Email = "admin@example.com",
+            PasswordHash = hashedPassword,
             Status = Core.Domain.Enums.UserStatus.Active,
             Role = Core.Domain.Enums.UserRole.SuperAdmin,
             CreatedBy = "System",
