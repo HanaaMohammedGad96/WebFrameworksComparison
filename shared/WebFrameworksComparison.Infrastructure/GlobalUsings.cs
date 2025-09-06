@@ -1,0 +1,16 @@
+global using System.Linq.Expressions;
+global using AutoMapper;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using MongoDB.Driver;
+global using WebFrameworksComparison.Core.Application.Interfaces;
+global using WebFrameworksComparison.Core.Domain.Entities;
+global using WebFrameworksComparison.Core.Domain.Interfaces;
+global using WebFrameworksComparison.Core.Shared.Constants;
+global using WebFrameworksComparison.Infrastructure.Data.MongoDB;
+global using WebFrameworksComparison.Infrastructure.Data.PostgreSQL;
+global using WebFrameworksComparison.Infrastructure.Data.Sqlite;
+global using WebFrameworksComparison.Infrastructure.Data.SqlServer;
+global using WebFrameworksComparison.Infrastructure.Repositories;

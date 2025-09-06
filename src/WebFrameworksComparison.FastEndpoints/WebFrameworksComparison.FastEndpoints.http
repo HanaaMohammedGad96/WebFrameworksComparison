@@ -1,0 +1,6 @@
+@WebFrameworksComparison.FastEndpoints_HostAddress = http://localhost:5098
+
+GET {{WebFrameworksComparison.FastEndpoints_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

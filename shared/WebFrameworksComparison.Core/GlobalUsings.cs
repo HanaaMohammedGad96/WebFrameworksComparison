@@ -1,0 +1,16 @@
+global using System.ComponentModel.DataAnnotations;
+global using System.Linq.Expressions;
+global using AutoMapper;
+global using FluentValidation;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+global using WebFrameworksComparison.Core.Application.DTOs;
+global using WebFrameworksComparison.Core.Application.Interfaces;
+global using WebFrameworksComparison.Core.Application.Mapping;
+global using WebFrameworksComparison.Core.Application.Services;
+global using WebFrameworksComparison.Core.Application.Validators;
+global using WebFrameworksComparison.Core.Domain.Entities;
+global using WebFrameworksComparison.Core.Domain.Enums;
+global using WebFrameworksComparison.Core.Domain.Interfaces;
+global using WebFrameworksComparison.Core.Shared.Constants;
+global using WebFrameworksComparison.Core.Shared.Exceptions;
